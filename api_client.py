@@ -9,10 +9,12 @@ load_dotenv()
 
 class ControllerAPI:
     def __init__(self) -> None:
-        self.api_key = os.getenv("WEATHER_API_KEY")
-        self.base_url = "http://api.openweathermap.org/data/2.5/weather"
+        self.api_key: str = os.getenv("WEATHER_API_KEY", "")
+        self.base_url: str = "http://api.openweathermap.org/data/2.5/weather"
+        if not self.api_key:
+            raise ValueError("WHEATHER API KEY не был найден в .env файле")
 
-    def get_weather_data(self, city: str) -> dict | None:
+    def get_weather_data(self, city: str) -> dict:
         try:
             params:dict = {
                 "q": city,
@@ -26,20 +28,20 @@ class ControllerAPI:
             elif response.status_code == 404:
                 print(f"❌ Город '{city}' не найден!")
                 input(">>> ")
-                return None
+                return {}
 
             else:
                 print(f"Error fetching weather data: {response.status_code} - {response.text}")
                 input(">>> ")
-                return None
+                return {}
         except requests.exceptions.RequestException as e:
             print(f"Error occurred while fetching weather data: {e}")
             input(">>> ")
-            return None
+            return {}
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
             
-            return None
+            return {}
 
     def format_weather_data(self, data: dict | None) -> str:
         """Форматирование данных для вывода"""
