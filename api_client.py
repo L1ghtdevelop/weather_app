@@ -25,19 +25,23 @@ class ControllerAPI:
                 return response.json()
             elif response.status_code == 404:
                 print(f"❌ Город '{city}' не найден!")
+                input(">>> ")
                 return None
 
             else:
                 print(f"Error fetching weather data: {response.status_code} - {response.text}")
+                input(">>> ")
                 return None
         except requests.exceptions.RequestException as e:
             print(f"Error occurred while fetching weather data: {e}")
+            input(">>> ")
             return None
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
+            
             return None
 
-    def format_weather_data(self, data: dict) -> str:
+    def format_weather_data(self, data: dict | None) -> str:
         """Форматирование данных для вывода"""
         if not data:
             return ""

@@ -4,6 +4,7 @@ from history import HistoryManager
 
 def main():
     history_manager = HistoryManager()
+    
     controller = ControllerAPI()
     while True:
         os.system("clear||cls")
@@ -18,8 +19,20 @@ def main():
         choice = input(">>> Выберите действие: ").strip()
         
         if choice == "1":
-            # TODO: реализуйте запрос города и вывод погоды
-            pass
+            os.system("clear||cls")
+            print("="*50)
+            user_input = input("Напишите название города, для которого хотите узнать погоду: ")
+            user_data = controller.get_weather_data(user_input)
+            os.system("clear||cls")
+            print("="*50)
+            text = controller.format_weather_data(user_data)
+            if text:
+                print(text)
+            else:
+                print("Вы неправильно ввели название города или такого города не существует")
+            input(">>> ")
+        
+            
             
         elif choice == "2":
             history_manager.show_history()

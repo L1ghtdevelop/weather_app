@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 37.6156,
+        "lat": 55.7522
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "ясно",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 15.19,
+        "feels_like": 14.31,
+        "temp_min": 15.19,
+        "temp_max": 15.19,
+        "pressure": 1021,
+        "humidity": 59,
+        "sea_level": 1021,
+        "grnd_level": 1002
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 1.74,
+        "deg": 334,
+        "gust": 2.85
+    },
+    "clouds": {
+        "all": 3
+    },
+    "dt": 1781987772,
+    "sys": {
+        "type": 2,
+        "id": 2094500,
+        "country": "RU",
+        "sunrise": 1781916263,
+        "sunset": 1781979460
+    },
+    "timezone": 10800,
+    "id": 524901,
+    "name": "Москва",
+    "cod": 200
+}

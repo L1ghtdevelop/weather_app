@@ -17,8 +17,7 @@ class HistoryManager:
             return []
 
     def save_history(self, history: list) -> None:
-        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-            json.dump(history, f, indent=4, ensure_ascii=False)
+        pass
 
     def add_to_history(self, city: str, temperature: float) -> None:
         history: list = self.load_history()
