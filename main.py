@@ -1,8 +1,10 @@
 import os
-from api_client import get_weather_data, format_weather_data
-from history import add_to_history, show_history
+from api_client import ControllerAPI
+from history import HistoryManager
 
 def main():
+    history_manager = HistoryManager()
+    controller = ControllerAPI()
     while True:
         os.system("clear||cls")
         print("\n" + "="*50)
@@ -20,7 +22,7 @@ def main():
             pass
             
         elif choice == "2":
-            # TODO: показать историю
+            history_manager.show_history()
             pass
             
         elif choice == "3":
